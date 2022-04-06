@@ -1,0 +1,11 @@
+
+prefix = "~"
+
+.pam_environment
+.alacritty.yml
+.tmux.conf
+.my_env
+.aliases
+.vimrc
+.Xmodmap
+.config/zathura/zathurarc

@@ -71,6 +71,10 @@ oh-my-zsh:
 ```sh
 ddg your_problem
 ```
+zsh theme
+```sh
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+```
 zsh:
 启用vim模式,在.zshrc中添加
 ```
@@ -225,6 +229,7 @@ GDB调试支持:
 直接安装从Aur中安装
 ```sh
 yay -S riscv-gnu-toolchain-bin
+sudo pacman -S gdb-dashboard
 ```
 或者下载PKGBUILD文件，删掉不必要的包，自己安装
 ```sh
@@ -394,7 +399,11 @@ sudo pacman -S clang llvm
 
 [Permission denied when installing npm modules](https://stackoverflow.com/questions/47252451/permission-denied-when-installing-npm-modules-in-osx)
 
+[rCore-Tutorial 实验环境配置](https://rcore-os.github.io/rCore-Tutorial-Book-v3/chapter0/5setup-devel-env.html#id2)
 [riscv-gnu-toolchain](https://github.com/riscv-collab/riscv-gnu-toolchain)
+
+[Powerlevel10k](https://github.com/romkatv/powerlevel10k#configuration-wizard)
+[Nerd Fonts](https://github.com/ryanoasis/nerd-fonts)
 
 [](https://www.pling.com/p/1013741)
 [](https://www.pling.com/p/1261886/)
