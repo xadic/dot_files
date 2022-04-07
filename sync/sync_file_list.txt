@@ -9,3 +9,4 @@ prefix = "~"
 .vimrc
 .Xmodmap
 .config/zathura/zathurarc
+.p10k.zsh

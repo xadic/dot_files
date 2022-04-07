@@ -378,6 +378,11 @@ llvm和clang
 sudo pacman -S clang llvm
 ```
 
+pdf阅读器和管理工具:
+```sh
+sudo pacman -S zathura zotero
+```
+
 ## 参考资料
 
 [How to Dual Boot Arch Linux and Windows 10 on UEFI System](https://www.linuxtechi.com/dual-boot-arch-linux-windows-10/)
@@ -404,6 +409,8 @@ sudo pacman -S clang llvm
 
 [Powerlevel10k](https://github.com/romkatv/powerlevel10k#configuration-wizard)
 [Nerd Fonts](https://github.com/ryanoasis/nerd-fonts)
+
+[Zotero, LaTeX, Sublime/VS Code, Git, Vim, Markdown, & Pandoc](http://www.benbrastmckie.com/tools)
 
 [](https://www.pling.com/p/1013741)
 [](https://www.pling.com/p/1261886/)
