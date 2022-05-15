@@ -14,3 +14,12 @@ git push -u origin main
 ```sh
 git remote rm origin
 ```
+
+中文文件夹和文件在linux中乱码问题:
+```sh
+unzip -O cp936 <your_zip_file>
+```
+
+```sh
+iconv -f GB2312 -t utf-8 '<origin_file>' -o <converted_file>
+```

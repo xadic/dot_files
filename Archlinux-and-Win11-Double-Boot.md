@@ -2,11 +2,11 @@
 
 ## 1.制作启动盘
 使用rufus(Windows系统)制作archlinux启动盘，或者是使用`dd` 命令(Linux系统).
-如果原系统是Windows的话，需把`Fast boot`和`Security boot`关掉。
+如果原系统是Windows的话，需把`Fast boot`和`Secure boot`关掉。
 
 ## 2.分区，格式化
 (注意！需按实际情况更改，否则原系统可能损坏)
-原Windows系统算在盘为`nvme0n1`，新加的硬盘为`nvme1n1`
+原Windows系统所在盘为`nvme0n1`，新加的硬盘为`nvme1n1`
 
 ## 双系统启动配置
 在`/etc/default/grub`文件中uncomment掉`GRUB_DISABLE_OS_PROBER=false`这行。然后执行
@@ -32,7 +32,15 @@ gnome桌面：
 sudo pacman -S gnome gnome-shell-extensions
 sudo pacman -S gnome-shell-extensions-simple-net-speed
 yay -S gnome-shell-extension-dash-to-dack 
+spi gnome-shell-extension-appindicator
 yay -S gnome-shell-extension-topicons-plus
+```
+dash-to-dack不兼容gnome的话可以下载安装ubuntu dock
+```sh
+git clone https://github.com/micheleg/dash-to-dock.git -b ubuntu-dock
+cd dash-to-dock
+make
+make install
 ```
 界面字体太小:
 进入tweaks软件把fonts的Scaling Factor调成1.30左右,具体数值自己调整,然后再调整fonts的大小.
@@ -326,6 +334,7 @@ flameshot gui
 ```sh
 sudo pacman -S optimus-manager bbswitch
 sudo pacman -S nvidia
+yay -S optimus-manager-qt
 ```
 把gdm替换成gdm-prime
 ```
@@ -358,6 +367,12 @@ optimus-manager --switch nvidia
 optimus-manager --switch integrated
 optimus-manager --switch hybrid
 ```
+或使用optimus-manager-qt切换.
+
+查看当前显卡使用模式
+```sh
+optimus-manager --print-mode
+```
 
 查看命令行用法tldr
 ```sh
@@ -382,6 +397,18 @@ pdf阅读器和管理工具:
 ```sh
 sudo pacman -S zathura zotero
 ```
+
+没有声音：
+```sh
+sudo pacman -S pipewire-pulse
+```
+
+数据库GUI:
+```sh
+sudo pacman -S dbeaver
+```
+dbeaver中显示问题看不清:
+Preferences => User Interface => Appearance中 把Enable theming取消勾选.
 
 ## 参考资料
 
