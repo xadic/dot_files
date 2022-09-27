@@ -410,6 +410,45 @@ sudo pacman -S dbeaver
 dbeaver中显示问题看不清:
 Preferences => User Interface => Appearance中 把Enable theming取消勾选.
 
+程序降级:
+```sh
+sudo pacman -S downgrade
+sudo downgrade v2ray
+```
+
+Java版本:
+```sh
+sudo pacman -S jdk8-openjdk
+archlinux-java status
+archlinux-java set java-8-openjdk
+```
+取消ideavim铃声:
+在~/.ideavimrc中
+```
+set visualbell
+set noerrorbells
+```
+
+## Dev
+
+rustdesk开发环境:
+```sh
+sudo pacman -Syu --needed unzip git cmake gcc curl wget yasm nasm zip make pkg-config clang gtk3 xdotool libxcb libxfixes alsa-lib pulseaudio
+```
+vcpkg:
+```sh
+cd ~/Build
+git clone https://github.com/microsoft/vcpkg
+cd vcpkg
+./bootstrap-vcpkg.sh -disableMetrics
+export VCPKG_ROOT=$HOME/Build/vcpkg
+```
+
+```sh
+./vcpkg install libvpx libyuv opus
+```
+把`export VCPKG_ROOT=$HOME/Build/vcpkg`放到`~/.zshrc`中
+
 ## 参考资料
 
 [How to Dual Boot Arch Linux and Windows 10 on UEFI System](https://www.linuxtechi.com/dual-boot-arch-linux-windows-10/)
