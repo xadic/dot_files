@@ -593,6 +593,53 @@ set visualbell
 set noerrorbells
 ```
 
+rofi配置:
+```sh
+sudo pacman -S rofi
+```
+在~/.config/rofi/config.rasi中
+```
+configuration {
+ modes: "drun";
+ font: "hack 25";
+ show-icons: true;
+ icon-theme: "WhiteSur-Dark";
+ }
+@theme "lb"
+
+entry {
+    placeholder: "C'est le seul vide que je comblerai peute";
+}
+element-icon {
+    size: 1.4em;
+}
+entry, element-text {
+/*    text-color: grey; */
+    background-color: rgba(0,0,1,0.0);
+}
+
+element-text {
+    vertical-align: 0.5;
+}
+```
+
+xclip:
+复制到剪切板
+```sh
+cat "your_file" | xclip
+```
+
+粘贴到X应用程序以外
+```sh
+cat "your_file" | xclip -selection clipboard
+```
+
+vim粘贴格式错乱:
+进入paste模式
+```
+:set paste
+```
+
 ## Dev
 
 rustdesk 开发环境:
