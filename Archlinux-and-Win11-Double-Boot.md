@@ -640,6 +640,26 @@ vim粘贴格式错乱:
 :set paste
 ```
 
+快速搜索:
+fzf,ripgrep,skim,bat
+在~/.zshrc中添加
+```
+# load fzf function
+if [ -f /usr/share/fzf/key-bindings.zsh ]; then
+    source /usr/share/fzf/key-bindings.zsh
+fi
+if [ -f /usr/share/fzf/completion.zsh ]; then
+    source /usr/share/fzf/completion.zsh
+fi
+```
+在~/.my_env中添加
+(窗口预览)
+```
+# fzf config within vim(neovim)
+export FZF_DEFAULT_COMMAND='rg --files --hidden'
+export FZF_DEFAULT_OPTS="--height 40% --layout=reverse --preview '(highlight -O ansi {} || cat {}) 2> /dev/null | head -500'"
+```
+
 ## Dev
 
 rustdesk 开发环境:
