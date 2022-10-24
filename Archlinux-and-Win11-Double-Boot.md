@@ -310,6 +310,33 @@ vscode 中无法搜索到一些插件:
 yay -S code-marketplace
 ```
 
+neovim配置:
+```sh
+git clone https://github.com/LunarVim/Neovim-from-scratch.git ~/.config/nvim
+```
+```sh
+sudo pacman -S prettier xclip lazygit ripgrep fd htop
+pip install pynvim
+```
+
+`Ctrl+h`: 跳到左侧菜单
+`Ctrl+l`: 跳到右侧区域
+`Shift+h`: 向左跳动一个文件
+`Shift+l`: 向右跳动一个文件
+`Space`: 自定义主键
+`Space+e`: 开关菜单栏
+`Space+f`: 打开文件搜索
+`Space+Shift+f`: 打开项目文本搜索
+`Space+l+f`: 格式化
+`g+l`: 查看错误提示
+`g+d`: 查看定义
+`g+r`: 查看引用
+
+Notion笔记:
+```sh
+sudo pacman -S notion-app-enhanced
+```
+
 Postgresql 数据库:
 
 ```sh
