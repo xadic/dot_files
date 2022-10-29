@@ -136,6 +136,10 @@ chsh -s /usr/bin/zsh
 
 vscode:
 调节界面字体大小,按住`Ctrl+=`,或`Ctrl+-`,使用*Settings Sync*插件同步
+下载Microsoft版
+```sh
+yay -S visual-studio-code-bin
+```
 
 git:
 
@@ -199,6 +203,24 @@ export QT_IM_MODULE=fcitx
 ```sh
 yay -S fcitx-sogoupinyin
 ```
+
+使用新的fcitx5输入法:
+```sh
+sudo pacman -S fcitx5-im fcitx5-chinese-addons
+```
+更换主题
+```
+git clone https://github.com/fkxxyz/ssfconv.git
+cd ssfconv
+pip install pycryptodome
+```
+
+下载搜狗皮肤 "就这·龙小可.ssf"
+```
+./ssfconv -t fcitx5 就这·龙小可.ssf 就这·龙小可
+cp -r 就这·龙小可 ~/.local/share/fcitx5/themes/
+```
+
 
 gonme 更换主题,图标:
 苹果 WhiteSur 主题和图标
@@ -710,6 +732,19 @@ export VCPKG_ROOT=$HOME/Build/vcpkg
 ```
 
 把`export VCPKG_ROOT=$HOME/Build/vcpkg`放到`~/.zshrc`中
+
+安装微信 企业微信
+```sh
+yay deepin-wine-wechat
+```
+在~/.my_env中添加
+```
+DEEPIN_WINE_SCALE=1.25
+```
+修改DPI
+```
+/opt/apps/com.qq.weixin.deepin/files/run.sh winecfg
+```
 
 ## 参考资料
 
