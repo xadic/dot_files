@@ -231,7 +231,7 @@ This command assumes the hardware clock is set to **UTC**.
 
 ### Localization
 
-Uncomment **en_US.UTF-8 UTF-8** and other needed **locales** in **/etc/locale.gen**,and generate them
+Uncomment **en_US.UTF-8 UTF-8**, **fr_FR.UTF-8 UTF-8** and other needed **locales** in **/etc/locale.gen**,and generate them
 
 ```bash
 locale-gen
@@ -240,7 +240,8 @@ locale-gen
 Set the **LANG** variable in **/etc/locale.conf**
 
 ```
-LANG=en_US.UTF-8
+#LANG=en_US.UTF-8
+LANG=fr_FR.UTF-8
 ```
 
 ### Network configuration

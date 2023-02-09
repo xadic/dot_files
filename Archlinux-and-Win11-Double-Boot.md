@@ -746,6 +746,18 @@ DEEPIN_WINE_SCALE=1.25
 /opt/apps/com.qq.weixin.deepin/files/run.sh winecfg
 ```
 
+安装nvm管理node版本
+```sh
+sudo pacman -S nvm
+nvm install 16
+nvm use 16
+```
+
+安装pnpm
+```sh
+sudo pacman -S pnpm
+```
+
 ## 参考资料
 
 [How to Dual Boot Arch Linux and Windows 10 on UEFI System](https://www.linuxtechi.com/dual-boot-arch-linux-windows-10/)
