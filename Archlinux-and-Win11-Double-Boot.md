@@ -758,6 +758,16 @@ nvm use 16
 sudo pacman -S pnpm
 ```
 
+Rss 阅读器
+```sh
+sudo pacman -S fluent-reader
+```
+
+法语词典
+```sh
+yay -S frhelper
+```
+
 ## 参考资料
 
 [How to Dual Boot Arch Linux and Windows 10 on UEFI System](https://www.linuxtechi.com/dual-boot-arch-linux-windows-10/)
