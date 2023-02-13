@@ -44,6 +44,8 @@ sudo pacman -S gnome-shell-extensions-simple-net-speed
 yay -S gnome-shell-extension-dash-to-dack
 spi gnome-shell-extension-appindicator
 yay -S gnome-shell-extension-topicons-plus
+yay -S gnome-shell-extensions-no-overview
+yay -S gnome-shell-extension-clipboard-indicator
 ```
 
 dash-to-dack 不兼容 gnome 的话可以下载安装 ubuntu dock
@@ -456,6 +458,9 @@ flameshot gui
 
 对换 Caps 和 Esc 键在 VSCode 中不起作用:
 在`/home/rick/.config/Code - OSS/User/settings.json`文件中添加:
+
+.xinit在GDM启动时不能自动执行:
+把.xinit文件内容粘贴到*.xprofile*中.
 
 ```
 "keyboard.dispatch": "keyCode"
