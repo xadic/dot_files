@@ -459,12 +459,22 @@ flameshot gui
 对换 Caps 和 Esc 键在 VSCode 中不起作用:
 在`/home/rick/.config/Code - OSS/User/settings.json`文件中添加:
 
-.xinit在GDM启动时不能自动执行:
-把.xinit文件内容粘贴到*.xprofile*中.
-
 ```
 "keyboard.dispatch": "keyCode"
 ```
+
+Caps键与Esc键对换：
+新建文件`/etc/X11/xorg.conf.d/00-keyboard.conf`,内容如下
+```sh
+Section "InputClass"
+        Identifier "system-keyboard"
+        MatchIsKeyboard "on"
+	    Option "XkbOptions" "caps:swapescape"
+        Option "XkbLayout" "en"
+        Option "XkbModel" "pc105"
+EndSection
+```
+
 
 双显卡切换:
 
