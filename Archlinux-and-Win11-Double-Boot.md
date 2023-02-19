@@ -113,6 +113,15 @@ bindkey -v
 export KEYTIMEOUT=1
 ```
 
+fish shell:
+```sh
+sudo pacman -S fish fisher
+chsh -s /usr/bin/fish
+curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install | fish
+fisher install veirt/web-search.fish
+fisher install PatrickF1/fzf.fish
+```
+
 蓝牙问题：
 
 ```sh
@@ -569,6 +578,11 @@ sudo pacman -S zathura zotero
 sudo pacman -S pipewire-pulse
 ```
 
+终端默认打开chrome浏览器:
+```sh
+xdg-settings set default-url-scheme-handler http google-chrome.desktop
+```
+
 数据库 GUI:
 
 ```sh
@@ -783,6 +797,11 @@ sudo pacman -S fluent-reader
 yay -S frhelper
 ```
 
+grex语法生成:
+```sh
+sudo pacman -S grex
+```
+
 ## 参考资料
 
 [How to Dual Boot Arch Linux and Windows 10 on UEFI System](https://www.linuxtechi.com/dual-boot-arch-linux-windows-10/)
@@ -816,3 +835,6 @@ yay -S frhelper
 [](https://www.pling.com/p/1261886/)
 
 [How to make st the default terminal in linuxmint cinnamon](https://unix.stackexchange.com/questions/594242/how-to-make-st-the-default-terminal-in-linuxmint-cinnamon)
+
+[web-search.fish](https://github.com/Veirt/web-search.fish)
+[](https://zaiste.net/posts/shell-commands-rust/)
