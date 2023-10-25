@@ -401,6 +401,40 @@ systemctl start postgresql.service
 createdb your_db_name
 ```
 
+postgresql数据库版本升级
+
+1、停止服务，升级数据库，安装postgresql-old-upgrade
+```sh
+sudo systemctl stop postgresql.service
+sudo pacman -S postgresql postgresql-libs postgresql-old-upgrade
+```
+
+2、备份数据库文件
+```sh
+# mv /var/lib/postgres/data /var/lib/postgres/olddata
+# mkdir /var/lib/postgres/data /var/lib/postgres/tmp
+# chown postgres:postgres /var/lib/postgres/data /var/lib/postgres/tmp
+
+sudo su - postgres
+[postgres]$ cd /var/lib/postgres/tmp
+```
+
+3、升级
+```sh
+[postgres]$ initdb -D /var/lib/postgres/data
+[postgres]$ pg_upgrade -b /opt/pgsql-14/bin -B /usr/bin -d /var/lib/postgres/olddata -D /var/lib/postgres/data
+```
+
+4、
+```sh
+systemctl start postgresql.service
+[postgres]$ vacuumdb --all --analyze-in-stages
+```
+
+
+
+
+
 安装图形化界面 pgadmin4
 
 ```sh
@@ -484,6 +518,22 @@ Section "InputClass"
 EndSection
 ```
 
+或者是使用`interception-caps2esc`:
+```sh
+sudo pacman -S interception-caps2esc
+```
+新建`/etc/interception/udevmon.yaml` 文件：
+```yml
+- JOB: intercept -g $DEVNODE | caps2esc | uinput -d $DEVNODE
+  DEVICE:
+    EVENTS:
+      EV_KEY: [KEY_CAPSLOCK, KEY_ESC]
+```
+
+```sh
+sudo systemctl enable udevmon
+sudo systemctl restart udevmon
+```
 
 双显卡切换:
 
@@ -604,7 +654,11 @@ Java 版本:
 ```sh
 sudo pacman -S jdk8-openjdk
 archlinux-java status
-archlinux-java set java-8-openjdk
+sudo archlinux-java set java-8-openjdk
+```
+
+```sh
+sudo archlinux-java set java-19-jdk
 ```
 
 路径:
@@ -642,6 +696,21 @@ nemo-icon-view-auto-layout=false
 nemo-icon-view-layout-timestamp=1666096734
 ```
 
+创建nemo.desktop文件，将文件复制到~/.config/autostart目录下，内容如下:
+
+```
+[Desktop Entry]
+Type=Application
+Name=Desktop Icons
+Exec=nemo-desktop
+OnlyShowIn=GNOME;
+NoDisplay=true
+X-GNOME-Autostart-Phase=Desktop
+X-GNOME-Autostart-Notify=true
+X-GNOME-AutoRestart=true
+X-GNOME-Provides=filemanager
+```
+
 把 alacritty 设为默认终端
 
 ```sh
@@ -670,6 +739,17 @@ Terminal=false
 set visualbell
 set noerrorbells
 ```
+ideavim使用剪切板:
+```
+set clipboard+=unnamed
+```
+
+安装idea:
+配置代理：
+File->Settings->System Settings->HTTP Proxy->Manual proxy configuration
+
+配置Maven:
+File->Settings->Build,Execution,Deployment->Maven
 
 rofi配置:
 ```sh
@@ -782,6 +862,11 @@ nvm install 16
 nvm use 16
 ```
 
+fish 使用nvm
+```
+fisher install jorgebucaran/nvm.fish
+```
+
 安装pnpm
 ```sh
 sudo pacman -S pnpm
@@ -801,6 +886,37 @@ grex语法生成:
 ```sh
 sudo pacman -S grex
 ```
+
+sql server数据库：
+```
+yay -S mssql-server
+sudo /opt/mssql/bin/mssql-conf setup
+yay -S azuredatastudio-bin
+```
+无法还原数据库时无法在/home 下面找到时，将备份的数据库复制到/tmp 下.
+
+clion终端使用fish时报错：
+
+创建脚本 /home/your_name/scripts/launch_fish.sh
+```bash
+#!/bin/sh
+if [ -n "$OLD_XDG_CONFIG_HOME" ]; then
+  export XDG_CONFIG_HOME="$OLD_XDG_CONFIG_HOME"
+else
+  unset XDG_CONFIG_HOME
+fi
+exec fish
+```
+修改clion的terminal的路径为上面的脚本。
+
+设置文件绑定打开程序
+```bash
+xdg-mime query filetype ~/Documents/test.txt
+xdg-mime query default text/plain
+xdg-mime default lvim.desktop text/plain
+xdg-open ~/Document/test.txt
+```
+
 
 ## 参考资料
 
@@ -838,3 +954,7 @@ sudo pacman -S grex
 
 [web-search.fish](https://github.com/Veirt/web-search.fish)
 [](https://zaiste.net/posts/shell-commands-rust/)
+
+[Can I use Vim to edit the notes in Zotero directly?](https://forums.zotero.org/discussion/64893/can-i-use-vim-to-edit-the-notes-in-zotero-directly)
+[Arch wiki:nemo](https://wiki.archlinux.org/title/Nemo)
+[gnome3.28及以后桌面图标显示方法](https://www.jianshu.com/p/b4ece1c0acec)

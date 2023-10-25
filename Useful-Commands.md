@@ -23,3 +23,12 @@ unzip -O cp936 <your_zip_file>
 ```sh
 iconv -f GB2312 -t utf-8 '<origin_file>' -o <converted_file>
 ```
+
+vim:
+open current file in web browser
+```
+:!open %
+```
+
+`gf`: go to the file under cursor.
+`gx`: open url under cursor in web browser.
