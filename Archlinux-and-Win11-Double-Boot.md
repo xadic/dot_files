@@ -96,6 +96,9 @@ sudo pacman -S ark # 压缩软件
 sudo pacman -S tela-icon-theme-git
 ```
 
+修改任务切换器：
+System Settings -> Window Management -> Task Switcher -> Main -> Thumbnails
+
 字体安装：
 ```sh
 sudo pacman -S adobe-source-han-serif-cn-fonts wqy-zenhei # 安装几个开源中文字体。一般装上文泉驿就能解决大多 wine 应用中文方块的问题
