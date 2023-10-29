@@ -34,7 +34,69 @@ yay -S update-grub
 
 可以使用 grub-customizer 图形界面程序来配置 grub,同样的修改后也是要重新生成 grub 配置文件.
 
----
+-------------------------------------
+
+KDE Plasma 桌面：
+参考[archlinux 简明指南](https://arch-linux.osrc.com/)
+```sh
+sudo pacman -S plasma-meta konsole dolphin # plasma-meta 元软件包、konsole 终端模拟器和 dolphin 文件管理器
+```
+
+高分屏下字体太小:
+System Settings -> Fonts -> Force font DPI 改成120.(根据实际情况修改)
+
+Krunner字体太小：
+参考[如何放大Krunner的字体](https://bigshans.github.io/post/how-to-increase-krunner-font/)
+先退出Krunner
+```sh
+kquitapp5 krunner
+```
+
+然后修改`~/.config/krunnerrc`文件如下：
+```sh
+[General]
+font=Noto Sans,20,-1,5,50,0,0,0,0,0
+[PlasmaRunnerManager]
+migrated=false
+```
+
+Latte Dock：
+```sh
+sudo pacman -S latte-dock-git # 使用git结尾的包
+```
+相关配置选项
+Behavior:
+    Screen: Bottom
+    Alignment: Center
+    Visibility: Dodge Active
+    Delay:
+        Show: none
+        Hide: none
+    Always use floating gap for user interaction : uncheck this option
+Appearance:
+    Items:
+        Absolute size: 88px
+        Zoom on hover: 0%
+    Margins:
+        Length: 1%
+        Thickness: 24%
+        Floating gap: 63px
+    Background:
+        Thickness: 85%
+    Opacity: 2%
+
+```sh
+sudo pacman -S ark # 压缩软件
+```
+
+安装小部件Widgets(Avalon Menu、Split Digital Clock、Netspeed Widget)
+
+`tela-icon-theme`主题图标：
+```sh
+sudo pacman -S tela-icon-theme-git
+```
+
+-------------------------------------
 
 gnome 桌面：
 
@@ -217,8 +279,20 @@ yay -S fcitx-sogoupinyin
 
 使用新的fcitx5输入法:
 ```sh
-sudo pacman -S fcitx5-im fcitx5-chinese-addons
+sudo pacman -S fcitx5-im # 输入法基础包组
+sudo pacman -S fcitx5-chinese-addons # 官方中文输入引擎
+sudo pacman -S fcitx5-anthy # 日文输入引擎
+sudo pacman -S fcitx5-rime # Rime输入法
+sudo pacman -S rime-cloverpinyin # 四叶草拼音输入方案
 ```
+创建`~/.local/share/fcitx5/rime/default.custom.yaml`文件：
+```yml
+patch:
+  "menu/page_size": 8
+  schema_list:
+    - schema: clover
+```
+
 更换主题
 ```
 git clone https://github.com/fkxxyz/ssfconv.git
@@ -499,6 +573,11 @@ Command 框填
 flameshot gui
 ```
 
+如果要临时对换Caps键与Esc键:
+```sh
+setxkbmap -option "caps:swapescape" -layout "cn"
+```
+
 对换 Caps 和 Esc 键在 VSCode 中不起作用:
 在`/home/rick/.config/Code - OSS/User/settings.json`文件中添加:
 
@@ -506,7 +585,7 @@ flameshot gui
 "keyboard.dispatch": "keyCode"
 ```
 
-Caps键与Esc键对换：
+Caps键与Esc键对换：(推荐此方法)
 新建文件`/etc/X11/xorg.conf.d/00-keyboard.conf`,内容如下
 ```sh
 Section "InputClass"
@@ -517,6 +596,8 @@ Section "InputClass"
         Option "XkbModel" "pc105"
 EndSection
 ```
+(如果不起作用，可能是被fcitx5等覆盖,查看相应的取消方法[Fcitx5 Disable overriding XKB settings](https://wiki.archlinux.org/title/Fcitx5#Disable_overriding_XKB_settings))
+
 
 或者是使用`interception-caps2esc`:
 ```sh
