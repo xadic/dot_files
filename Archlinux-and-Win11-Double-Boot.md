@@ -1045,3 +1045,5 @@ xdg-open ~/Document/test.txt
 [Can I use Vim to edit the notes in Zotero directly?](https://forums.zotero.org/discussion/64893/can-i-use-vim-to-edit-the-notes-in-zotero-directly)
 [Arch wiki:nemo](https://wiki.archlinux.org/title/Nemo)
 [gnome3.28及以后桌面图标显示方法](https://www.jianshu.com/p/b4ece1c0acec)
+
+[安装KDE Plasma桌面环境](https://arch-linux.osrc.com/rookie/desktop-env-and-app.html#_4-%E5%AE%89%E8%A3%85-kde-plasma-%E6%A1%8C%E9%9D%A2%E7%8E%AF%E5%A2%83)
