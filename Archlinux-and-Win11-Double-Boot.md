@@ -605,7 +605,8 @@ Section "InputClass"
         Option "XkbModel" "pc105"
 EndSection
 ```
-(如果不起作用，可能是被fcitx5等覆盖,查看相应的取消方法[Fcitx5 Disable overriding XKB settings](https://wiki.archlinux.org/title/Fcitx5#Disable_overriding_XKB_settings))
+(如果不起作用，可能是被fcitx5等覆盖,查看相应的取消方法[Fcitx5 Disable overriding XKB settings](https://wiki.archlinux.org/title/Fcitx5#Disable_overriding_XKB_settings),
+或者将上面`00-keyboard.conf`文件中的XkbLayout的en改成cn)
 
 
 或者是使用`interception-caps2esc`:
