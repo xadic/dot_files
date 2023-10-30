@@ -40,6 +40,7 @@ KDE Plasma 桌面：
 参考[archlinux 简明指南](https://arch-linux.osrc.com/)
 ```sh
 sudo pacman -S plasma-meta konsole dolphin # plasma-meta 元软件包、konsole 终端模拟器和 dolphin 文件管理器
+sudo pacman -S gwenview # 图片查看器
 ```
 
 高分屏下字体太小:
