@@ -45,6 +45,9 @@ sudo pacman -S plasma-meta konsole dolphin # plasma-meta 元软件包、konsole 
 高分屏下字体太小:
 System Settings -> Fonts -> Force font DPI 改成120.(根据实际情况修改)
 
+System Settings -> Display and Monitor -> Display Configuration -> Global scale: 150%
+
+
 Krunner字体太小：
 参考[如何放大Krunner的字体](https://bigshans.github.io/post/how-to-increase-krunner-font/)
 先退出Krunner
