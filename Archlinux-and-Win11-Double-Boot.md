@@ -46,7 +46,7 @@ sudo pacman -S gwenview # 图片查看器
 高分屏下字体太小:
 System Settings -> Fonts -> Force font DPI 改成120.(根据实际情况修改)
 
-System Settings -> Display and Monitor -> Display Configuration -> Global scale: 150%
+System Settings -> Display and Monitor -> Display Configuration -> Global scale: 125%
 
 
 Krunner字体太小：
@@ -87,7 +87,10 @@ Appearance:
         Floating gap: 63px
     Background:
         Thickness: 85%
-    Opacity: 2%
+        Opacity: 2%
+        Radius: 16px
+        Blur
+        Shadows
 
 ```sh
 sudo pacman -S ark # 压缩软件
