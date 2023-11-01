@@ -459,6 +459,7 @@ Notion笔记:
 ```sh
 sudo pacman -S notion-app-enhanced
 ```
+(notion打开卡在加载中进不去，执行这个[链接](https://github.com/notion-enhancer/notion-repackaged/issues/116#issuecomment-1783275997)中的脚本)
 
 Postgresql 数据库:
 
