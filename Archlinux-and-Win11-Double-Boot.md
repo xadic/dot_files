@@ -106,6 +106,13 @@ sudo pacman -S tela-icon-theme-git
 修改任务切换器：
 System Settings -> Window Management -> Task Switcher -> Main -> Thumbnails
 
+关掉锁屏后音乐停止：
+System Settings -> Power Management -> Advanced Power Settings -> Disable Pause media players when suspending
+
+关掉低电量降低亮度：
+System Settings -> Power Management -> Energy Saving -> On Low Battery uncheck Screen brightness
+
+
 字体安装：
 ```sh
 sudo pacman -S adobe-source-han-serif-cn-fonts wqy-zenhei # 安装几个开源中文字体。一般装上文泉驿就能解决大多 wine 应用中文方块的问题
