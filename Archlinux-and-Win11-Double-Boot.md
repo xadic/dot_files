@@ -119,6 +119,15 @@ sudo pacman -S adobe-source-han-serif-cn-fonts wqy-zenhei # 安装几个开源�
 sudo pacman -S noto-fonts noto-fonts-cjk noto-fonts-emoji noto-fonts-extra # 安装谷歌开源字体及表情
 ```
 
+Windows字体安装：
+```sh
+sudo mkdir /usr/share/fonts/WindowsFonts
+cd /path/to/C:/Windows/Fonts # 或者通过 Dolphin 在此文件夹下右键 > 点击 打开终端
+sudo cp ./* /usr/share/fonts/WindowsFonts
+sudo chmod 644 /usr/share/fonts/WindowsFonts/* # 设置合理的权限
+fc-cache -vf # 刷新字体
+```
+
 -------------------------------------
 
 gnome 桌面：
