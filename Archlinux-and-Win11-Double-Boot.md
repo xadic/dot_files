@@ -48,6 +48,24 @@ System Settings -> Fonts -> Force font DPI 改成120.(根据实际情况修改)
 
 System Settings -> Display and Monitor -> Display Configuration -> Global scale: 125%
 
+更换主题：
+System Settings -> Appearance -> Global Theme: Layan
+
+```sh
+sudo pacman -S kvantum
+```
+打开Kvantum Management，选择`Layan` Theme，保存.
+
+System Settings -> Appearance -> Application Style: kvantum
+
+毛玻璃效果：
+System Settings -> Workspace Behavior -> Blur
+
+System Settings -> Windows Management -> Kwin Scripts: Install `Force Blur`
+然后把alacritty和其他需要使用毛玻璃效果的软件填写在配置中.
+(注意：如果毛玻璃效果不起作用，将Global scale改成整数倍)
+
+
 
 Krunner字体太小：
 参考[如何放大Krunner的字体](https://bigshans.github.io/post/how-to-increase-krunner-font/)
@@ -96,7 +114,7 @@ Appearance:
 sudo pacman -S ark # 压缩软件
 ```
 
-安装小部件Widgets(Avalon Menu、Split Digital Clock、Netspeed Widget)
+安装小部件Widgets(Avalon Menu、Split Digital Clock、Netspeed Widget, Event Calendar)
 
 `tela-icon-theme`主题图标：
 ```sh
@@ -260,6 +278,17 @@ git 无法 clone,需要生成 token 替代 password,然后再 cache
 ```sh
 git config --global credential.helper cache
 ```
+
+如果遇到git 无法 通过SSH方式clone的,在`~/.ssh/config`文件中添加以下内容:
+```
+Host github.com
+User git
+Hostname ssh.github.com
+PreferredAuthentications publickey
+IdentityFile ~/.ssh/id_rsa
+Port 443
+```
+
 
 安装网络模型查看器 Netron:
 
@@ -559,6 +588,16 @@ bind C-Space send-prefix
 zellij:
 ```sh
 sudo pacman -S zellij
+```
+
+u盘自动挂载（dolphin无法挂载u盘处理）:
+在`/etc/udev/rules.d/99-usb-mount.rules`文件中添加:
+```
+ACTION=="add", SUBSYSTEMS=="usb", SUBSYSTEM=="block", ENV{ID_FS_USAGE}=="filesystem", RUN{program}+="/usr/bin/systemd-mount --no-block --automount=yes --collect $devnode /run/media/rick"
+```
+
+```sh
+udo systemctl restart systemd-udevd.service
 ```
 
 AI 开发环境:
@@ -1075,3 +1114,5 @@ xdg-open ~/Document/test.txt
 [gnome3.28及以后桌面图标显示方法](https://www.jianshu.com/p/b4ece1c0acec)
 
 [安装KDE Plasma桌面环境](https://arch-linux.osrc.com/rookie/desktop-env-and-app.html#_4-%E5%AE%89%E8%A3%85-kde-plasma-%E6%A1%8C%E9%9D%A2%E7%8E%AF%E5%A2%83)
+[udev: Mounting drives in rules](https://wiki.archlinux.org/title/Udev)
+[ssh: connect to host github.com port 22: Connection timed out](https://stackoverflow.com/questions/15589682/ssh-connect-to-host-github-com-port-22-connection-timed-out)
