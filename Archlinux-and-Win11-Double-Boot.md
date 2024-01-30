@@ -632,7 +632,37 @@ deactivate
 sudo pacman -S remmina
 ```
 
-更换默认截屏器为 flameshot
+安装virtualbox:
+```sh
+sudo pacman -S virtualbox virtualbox-host-modules-arch
+sudo pacman -S virtualbox-ext-oracle
+sudo gpasswd -a $USER vboxusers
+```
+VirtualBox虚拟机与主机之间复制粘贴设置以及文件拖拽
+
+```
+Settings→General→Advanced:
+Shared Clipboard: Bidirectional
+Drag’n’Drop: Bidirectional
+
+Settings→Storage→Controller: SATA→Use Host I/O Cache
+
+Settings→Storage→Win 7.vdi→Solid-state Drive
+
+Devices→Insert Guest Additions CD Images (下载失败的话到[https://download.virtualbox.org/virtualbox/7.0.14/](https://download.virtualbox.org/virtualbox/7.0.6/))下载VBoxGuestAdditions_7.0.14.iso，然后Devices > Optical Drives > Choose a disk file
+然后进入虚拟机CD盘中安装VirtualBox Guest Additions
+```
+让主机和虚拟机能通讯
+```
+Settings→Network→Adapter 1→Attached to：把NAT改成Bridged Adapter模式
+```
+共享文件夹
+```
+Devices→Shared Folders→Add new shared folders: 选择主机一个挂载点，然后将auto-mount勾上.
+```
+
+
+更换默认截屏器为 flameshot:
 
 ```sh
 sudo pacman -S flameshot
@@ -998,7 +1028,8 @@ export VCPKG_ROOT=$HOME/Build/vcpkg
 
 安装微信 企业微信
 ```sh
-yay deepin-wine-wechat
+yay -S deepin-wine-wechat
+yay -S com.qq.weixin.work.deepin-x11
 ```
 在~/.my_env中添加
 ```
